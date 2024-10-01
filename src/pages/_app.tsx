@@ -25,7 +25,6 @@ const App = (props: MyAppProps) => {
 					<meta name='viewport' content='width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1' />
 					<title>jipnadri</title>
 				</Head>
-
 				<ThemeProvider theme={theme}>
 					<CssBaseline />
 					<Component {...pageProps} />
