@@ -39,7 +39,7 @@ export const theme = createTheme({
 		grey: {
 			100: '#F5F5F5',
 			300: '#EAEBEE',
-			500: 'red',
+			500: '#9A9A9A',
 		},
 	},
 	typography: {
