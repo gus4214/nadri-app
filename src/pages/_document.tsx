@@ -2,11 +2,12 @@ import * as React from 'react';
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 import createEmotionCache from '@/src/createEmotionCache';
 import createEmotionServer from '@emotion/server/create-instance';
+import { pretendardFont } from '@core/font';
 
 export default class MyDocument extends Document {
 	render() {
 		return (
-			<Html lang={'ko'}>
+			<Html lang={'ko'} className={pretendardFont.className}>
 				<Head>
 					<meta name='emotion-insertion-point' content='' />
 					{(this.props as any).emotionStyleTags}
