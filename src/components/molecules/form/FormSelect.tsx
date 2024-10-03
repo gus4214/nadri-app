@@ -58,5 +58,6 @@ const CustomSelect = styled(Select)(({ theme }) => ({
 	padding: '8px 10px',
 	borderRadius: '8px',
 	color: `${theme.palette.grey[500]}`,
+	'.MuiSelect-select': { padding: 0 },
 	'.MuiOutlinedInput-notchedOutline': { border: `0.5px solid ${theme.palette.grey[500]}` },
 }));

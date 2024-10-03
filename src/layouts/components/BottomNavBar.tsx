@@ -4,9 +4,16 @@ import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import PersonIcon from '@mui/icons-material/Person';
 import { Box, Container, BottomNavigation as MuiBottomNavigation, BottomNavigationAction as MuiBottomNavigationAction, styled } from '@mui/material';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 const BottomNavBar = () => {
 	const [value, setValue] = useState('community');
+
+	const router = useRouter();
+
+	const handleClick = () => {
+		router.push('/meeting/register')
+	}
 
 	return (
 		<Container maxWidth={'tablet'} sx={{ position: 'fixed', bottom: 0, p: 0 }}>
@@ -19,7 +26,7 @@ const BottomNavBar = () => {
 			>
 				<BottomNavigationAction value={'community'} label='커뮤니티' icon={<HomeIcon isSelected={value === 'community'} />} />
 				<Box display={'flex'} justifyContent={'center'} alignItems={'center'}>
-					<BottomAddButton />
+					<BottomAddButton onClick={handleClick}/>
 				</Box>
 				<BottomNavigationAction value={'profile'} label='내정보' icon={value === 'profile' ? <PersonIcon /> : <PersonOutlineIcon />} />
 			</BottomNavigation>

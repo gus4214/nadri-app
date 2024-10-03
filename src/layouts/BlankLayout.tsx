@@ -10,10 +10,7 @@ const BlankLayout = ({ children }: BlankLayoutProps) => {
 	return (
 		<BlankLayoutWrapper>
 			<ContentWrapper sx={{ bgcolor: 'white' }}>
-				<Box
-					component={'main'}
-					sx={{ bgcolor: 'white', display: 'flex', flexDirection: 'column', paddingTop: '56px', paddingBottom: '66px', height: '100%' }}
-				>
+				<Box component={'main'} sx={{ bgcolor: 'white', display: 'flex', flexDirection: 'column', paddingTop: '56px', paddingBottom: '66px' }}>
 					{children}
 				</Box>
 			</ContentWrapper>

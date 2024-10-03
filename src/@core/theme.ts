@@ -39,6 +39,9 @@ export const theme = createTheme({
 		info: {
 			main: '#5772FF',
 		},
+		success: {
+			main: '#2CC469',
+		},
 		grey: {
 			100: '#F5F5F5',
 			300: '#EAEBEE',
