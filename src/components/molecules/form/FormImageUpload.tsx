@@ -1,17 +1,17 @@
 import useFilePreview from '@/src/hooks/imagePreview';
 import { TControl } from '@/src/types/form.d';
 import { AddCircleOutlined, Close } from '@mui/icons-material';
-import { Box, styled } from '@mui/material';
+import { Box, styled, SxProps } from '@mui/material';
 import { ChangeEvent, useRef } from 'react';
 import { FieldPath, FieldValues, useController } from 'react-hook-form';
 
 interface FormImageUploadProps<TFieldValues extends FieldValues, TName extends FieldPath<TFieldValues>> extends TControl<TFieldValues, TName> {
-	defaultImage?: string;
 	width?: number | string;
 	height?: number | string;
 	disabled?: boolean;
 	onChange?: (e?: ChangeEvent<HTMLInputElement>) => void;
 	onClose?: () => void;
+	sx?: SxProps;
 }
 
 const FormImageUpload = <TFieldValues extends FieldValues = FieldValues, TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>>({
@@ -21,10 +21,10 @@ const FormImageUpload = <TFieldValues extends FieldValues = FieldValues, TName e
 	resetField,
 	setValue,
 	name,
-	defaultImage,
 	disabled,
 	onChange,
 	onClose,
+	sx,
 	...props
 }: FormImageUploadProps<TFieldValues, TName>) => {
 	const {
@@ -53,6 +53,7 @@ const FormImageUpload = <TFieldValues extends FieldValues = FieldValues, TName e
 					sx={{
 						width,
 						height,
+						...sx,
 					}}
 					onClick={() => !disabled && imageRef.current?.click()}
 				>
@@ -85,8 +86,8 @@ const FormImageUpload = <TFieldValues extends FieldValues = FieldValues, TName e
 	);
 };
 
-const ImageUploadBox = styled(Box)({
-	background: '#FFFFFF',
+const ImageUploadBox = styled(Box)(({ theme }) => ({
+	background: `${theme.palette.grey[100]}`,
 	border: '1px dashed #A0A0A0',
 	display: 'flex',
 	flexDirection: 'column',
@@ -96,7 +97,7 @@ const ImageUploadBox = styled(Box)({
 	cursor: 'pointer',
 	overflow: 'hidden',
 	borderRadius: '8px',
-});
+}));
 
 const PreviewImage = styled('img')({
 	width: '100%',

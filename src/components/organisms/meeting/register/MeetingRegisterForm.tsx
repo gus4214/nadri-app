@@ -25,7 +25,8 @@ interface MeetingRegisterFormData {
 	startDate?: Dayjs;
 	companions: number;
 	description: string;
-	thumbnail?: File[] | null;
+	thumbnail?: File[];
+	BD_MAP?: File[];
 }
 
 const schema = yup.object().shape({
@@ -77,7 +78,8 @@ const MeetingRegisterForm = () => {
 			startDate: dayjs(),
 			companions: 2,
 			description: '',
-			thumbnail: null,
+			thumbnail: undefined,
+			BD_MAP: undefined,
 		},
 	});
 
@@ -89,6 +91,10 @@ const MeetingRegisterForm = () => {
 	return (
 		<>
 			<MainContainer sx={{ pt: '24px', gap: '24px' }}>
+				{/* 임장 루트 */}
+				<VerticalFormField label='임장 루트' required>
+					<FormImageUpload name={'BD_MAP'} width={'100%'} height={'200px'} sx={{ border: '1px dashed #FF6B0A' }} {...formHandler} />
+				</VerticalFormField>
 				{/* 제목 */}
 				<VerticalFormField label='제목' tag={<FormMaxNumTag typingValue={titleValue.length} maxNum={20} />} required>
 					<FormTextField control={control} name='title' inputProps={{ placeholder: '예 : 주말 00아파트 임장 보러 다니실 분!' }} />
@@ -144,8 +150,8 @@ const MeetingRegisterForm = () => {
 					/>
 				</VerticalFormField>
 				{/* 썸네일 등록 */}
-				<VerticalFormField label='게시글 썸네일 이미지' required subLabel='미첨부시 기본 이미지로 게시글이 등록돼요.'>
-					<FormImageUpload name={'thumbnail'} width={100} height={100} {...formHandler} />
+				<VerticalFormField label='게시글 썸네일 이미지' subLabel='미첨부시 기본 이미지로 게시글이 등록돼요.'>
+					<FormImageUpload name={'thumbnail'} width={'100px'} height={'100px'} {...formHandler} />
 				</VerticalFormField>
 			</MainContainer>
 			<BottomFixedContainer>
