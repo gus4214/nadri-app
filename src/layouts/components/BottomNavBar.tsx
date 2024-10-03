@@ -42,6 +42,5 @@ const BottomNavigationAction = styled(MuiBottomNavigationAction)(({ theme }) => 
 	padding: 0,
 	'&.Mui-selected': {
 		color: 'black',
-		'.MuiSvgIcon-root': {},
 	},
 }));

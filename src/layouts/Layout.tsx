@@ -12,7 +12,7 @@ const Layout = ({ children }: LayoutProps) => {
 		<LayoutWrapper>
 			<MainContentWrapper sx={{ bgcolor: 'white' }}>
 				<MainNavBar />
-				<Box component={'main'} sx={{ bgcolor: 'white', display: 'flex', flexDirection: 'column', paddingTop: '56px' }}>
+				<Box component={'main'} sx={{ bgcolor: 'white', display: 'flex', flexDirection: 'column', paddingTop: '56px', paddingBottom: '66px' }}>
 					{children}
 				</Box>
 				<BottomNavBar />

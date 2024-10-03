@@ -1,12 +1,14 @@
-import { Stack, Typography } from '@mui/material';
+import MainContainer from '@/src/components/atoms/layouts/MainContainer';
+import Banner from '@/src/components/organisms/main/Banner';
+import MeetingSection from '@/src/components/organisms/main/meetings/MeetingSection';
 
 export default function Home() {
 	return (
-		<Stack direction={'column'}>
-			<Typography variant='h2'>집나들이!</Typography>
-			<Typography variant='body1'>집나들이!</Typography>
-			<Typography variant='label1'>집나들이!</Typography>
-			<Typography variant='label2'>집나들이!</Typography>
-		</Stack>
+		<>
+			<Banner />
+			<MainContainer sx={{ pt: '20px', pb: '24px' }}>
+				<MeetingSection />
+			</MainContainer>
+		</>
 	);
 }

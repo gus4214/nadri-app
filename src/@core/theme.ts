@@ -36,6 +36,9 @@ export const theme = createTheme({
 			main: '#FF6B0A',
 			light: '#FFF0E7',
 		},
+		info: {
+			main: '#5772FF',
+		},
 		grey: {
 			100: '#F5F5F5',
 			300: '#EAEBEE',
