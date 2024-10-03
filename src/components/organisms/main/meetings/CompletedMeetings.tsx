@@ -14,7 +14,7 @@ const sample = [
 
 const CompletedMeetings = () => {
 	return (
-		<List header={<ListHeader title='완료된 모임' />}>
+		<List header={<ListHeader title='완료된 모임' href='/meetings/complete' />}>
 			<PerfectScrollbar options={{ wheelPropagation: false }} style={{ display: 'flex', gap: '12px' }}>
 				{sample.map((v, i) => (
 					<Box key={v.id}>

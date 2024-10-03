@@ -1,7 +1,7 @@
 import BottomNavBar from '@/src/layouts/components/BottomNavBar';
 import MainNavBar from '@/src/layouts/components/MainNavBar';
-import { Box, Container, styled } from '@mui/material';
-import React, { ReactNode } from 'react';
+import { Box, styled } from '@mui/material';
+import { ReactNode } from 'react';
 
 interface LayoutProps {
 	children: ReactNode;
@@ -11,7 +11,7 @@ const Layout = ({ children }: LayoutProps) => {
 	return (
 		<LayoutWrapper>
 			<MainContentWrapper sx={{ bgcolor: 'white' }}>
-				<MainNavBar />
+				{/* <MainNavBar /> */}
 				<Box component={'main'} sx={{ bgcolor: 'white', display: 'flex', flexDirection: 'column', paddingTop: '56px', paddingBottom: '66px' }}>
 					{children}
 				</Box>

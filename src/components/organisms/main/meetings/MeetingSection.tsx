@@ -7,7 +7,7 @@ const MeetingSection = () => {
 	return (
 		<Stack direction={'column'} gap={'16px'} component={'section'}>
 			<MeetingFilterGroup />
-			<RecruitingMeetings />
+			<RecruitingMeetings isHeader />
 			<Box mt={'24px'} />
 			<CompletedMeetings />
 		</Stack>

@@ -2,6 +2,11 @@ import List from '@/src/components/molecules/list/List';
 import ListHeader from '@/src/components/molecules/list/ListHeader';
 import ListItem from '@/src/components/molecules/list/ListItem';
 import { Divider } from '@mui/material';
+import { FC } from 'react';
+
+interface RecruitingMeetingsProps {
+	isHeader?: boolean;
+}
 
 const sample = [
 	{ id: 0, title: '마포구 대단지 탐험' },
@@ -13,10 +18,10 @@ const sample = [
 	},
 ];
 
-const RecruitingMeetings = () => {
+const RecruitingMeetings: FC<RecruitingMeetingsProps> = ({ isHeader }) => {
 	return (
 		<>
-			<List header={<ListHeader title='모집 중 모임' sx={{ pb: '20px' }} />}>
+			<List header={isHeader && <ListHeader title='모집 중 모임' sx={{ pb: '20px' }} href='/meetings/recruit' />}>
 				{sample.map((v, i) => (
 					<>
 						{i !== 0 && <Divider sx={{ my: '20px' }} />}
