@@ -1,5 +1,4 @@
 import BottomNavBar from '@/src/layouts/components/BottomNavBar';
-import MainNavBar from '@/src/layouts/components/MainNavBar';
 import { Box, styled } from '@mui/material';
 import { ReactNode } from 'react';
 
@@ -11,7 +10,6 @@ const Layout = ({ children }: LayoutProps) => {
 	return (
 		<LayoutWrapper>
 			<MainContentWrapper sx={{ bgcolor: 'white' }}>
-				{/* <MainNavBar /> */}
 				<Box component={'main'} sx={{ bgcolor: 'white', display: 'flex', flexDirection: 'column', paddingTop: '56px', paddingBottom: '66px' }}>
 					{children}
 				</Box>
@@ -29,12 +27,12 @@ const LayoutWrapper = styled(Box)(() => ({
 	height: '100svh',
 }));
 
-const MainContentWrapper = styled(Box)(() => ({
+const MainContentWrapper = styled(Box)(({ theme }) => ({
 	position: 'relative',
 	display: 'flex',
 	flexDirection: 'column',
 	margin: '0 auto',
 	width: '100%',
-	maxWidth: '600px',
+	maxWidth: `${theme.breakpoints.values.tablet}px`,
 	height: '100%',
 }));
