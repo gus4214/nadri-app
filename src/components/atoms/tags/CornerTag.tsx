@@ -2,7 +2,7 @@ import { Box, Typography } from '@mui/material';
 import { FC } from 'react';
 
 interface CornerTagProps {
-	text: string;
+	text: string | number;
 }
 
 const CornerTag: FC<CornerTagProps> = ({ text }) => {

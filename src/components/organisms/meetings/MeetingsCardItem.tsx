@@ -1,28 +1,25 @@
 import BasicTag from '@/src/components/atoms/tags/BasicTag';
+import { GetMeetingsItem } from '@/src/fetchers/meetings';
 import { Box, Stack, Typography } from '@mui/material';
 import Image from 'next/image';
 import { FC } from 'react';
 
-interface ImageCardProps {
-	title?: string
+interface MeetingsCardItemProps {
+	meetingsItem: GetMeetingsItem;
+	onClick?: () => void;
 }
 
-const ImageCard: FC<ImageCardProps> = ({title}) => {
+const MeetingsCardItem: FC<MeetingsCardItemProps> = ({ meetingsItem, onClick }) => {
+	const { BD_TITLE, BD_RATE, BD_IMG } = meetingsItem;
+
 	return (
 		<Box sx={{ position: 'relative', width: '170px', height: '170px', aspectRatio: '1/1', cursor: 'pointer' }}>
-			<Image
-				src={'/images/sample/sample3.jpg'}
-				alt='banner'
-				fill
-				objectFit='cover'
-				objectPosition='center'
-				style={{ borderRadius: '10px', filter: 'brightness(70%)' }}
-			/>
+			<Image src={BD_IMG} alt='meeting' fill objectFit='cover' objectPosition='center' style={{ borderRadius: '10px', filter: 'brightness(70%)' }} />
 			<Box sx={{ position: 'absolute', height: '100%' }}>
 				<Box sx={{ display: 'flex', flexDirection: 'column', alignContent: 'space-between', p: '16px', height: '100%' }}>
 					<Stack direction={'column'} gap={'10px'}>
 						<Stack direction={'row'} gap={'4px'}>
-							<BasicTag text='1급지' />
+							<BasicTag text={`${BD_RATE}급지`} />
 							<BasicTag text='경기 성남시' />
 						</Stack>
 						<Typography
@@ -31,7 +28,7 @@ const ImageCard: FC<ImageCardProps> = ({title}) => {
 							color='white'
 							sx={{ overflow: 'hidden', textOverflow: 'ellipsis', display: '-webkit-box', WebkitLineClamp: '3', WebkitBoxOrient: 'vertical' }}
 						>
-							{title}
+							{BD_TITLE}
 						</Typography>
 					</Stack>
 					<Box display={'flex'} flex={1} />
@@ -46,4 +43,4 @@ const ImageCard: FC<ImageCardProps> = ({title}) => {
 	);
 };
 
-export default ImageCard;
+export default MeetingsCardItem;

@@ -8,7 +8,7 @@ interface GetMeetingsRequest {
 	LIMIT: number;
 	PAGE: number;
 }
-interface GetMeetingsItem {
+export interface GetMeetingsItem {
 	BD_IDX: number;
 	BD_TITLE: string;
 	BD_STATE: string;
@@ -27,7 +27,7 @@ interface USER_PROFILE {
 }
 
 export const getMeetingsApi = (params: GetMeetingsRequest) => {
-	return callApi<GetMeetingsRequest, GetMeetingsItem>({
+	return callApi<GetMeetingsRequest, GetMeetingsItem[]>({
 		api: apis.GET_MEETINGS_API,
 		queryString: params,
 	});
