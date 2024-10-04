@@ -1,7 +1,9 @@
 import AppButton from '@/src/components/atoms/buttons/AppButton';
-import BottomFixedContainer from '@/src/components/atoms/layouts/BottomFixedContainer';
+import UnderlineTextButton from '@/src/components/atoms/buttons/UnderlineTextButton';
+import MainContainer from '@/src/components/atoms/layouts/MainContainer';
 import SignUpForm from '@/src/components/organisms/auth/SignUpForm';
 import useSignUpForm from '@/src/hooks/form/useSignUp.form';
+import { Box } from '@mui/material';
 import { Form } from 'react-hook-form';
 
 const ProfileEditFormContainer = () => {
@@ -15,15 +17,14 @@ const ProfileEditFormContainer = () => {
 	return (
 		<Form control={control}>
 			<SignUpForm formHandler={formHandler} />
-			<BottomFixedContainer bottom={60}>
-				<AppButton
-					size='large'
-					// disabled={!isValid}
-					disabled
-				>
+			<MainContainer sx={{ pt: '42px' }}>
+				<AppButton size='large' disabled>
 					서비스 준비중이에요!
 				</AppButton>
-			</BottomFixedContainer>
+				<Box display={'flex'} flexDirection={'column'} justifyContent={'flex-end'} alignItems={'center'} py={'24px'}>
+					<UnderlineTextButton buttonText='로그아웃' />
+				</Box>
+			</MainContainer>
 		</Form>
 	);
 };
