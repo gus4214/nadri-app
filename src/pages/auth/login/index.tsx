@@ -11,12 +11,12 @@ const LoginPage: NextPage = () => {
 	return (
 		<>
 			<DetailNavBar goBack />
-			<MainContainer sx={{ pt: '20px', height: '100%' }}>
+			<MainContainer sx={{ pt: '20px' }}>
 				<Stack direction={'column'} height={'100%'}>
 					<Typography variant='h2'>
 						부동산 임장 모임, <br /> 나들이하듯 간편하게 시작하기
 					</Typography>
-					<Box display={'flex'} flexGrow={1} flexDirection={'column'} alignItems={'center'} justifyContent={'flex-end'} gap={'64px'}>
+					<Box display={'flex'} flexDirection={'column'} alignItems={'center'} justifyContent={'flex-end'} gap={'64px'} mt={'130px'}>
 						<LogoIcon sx={{ width: '94px', height: '74px' }} />
 						<LoginPageIcon sx={{ width: '320px', height: '85px', color: 'white' }} />
 					</Box>
