@@ -7,15 +7,14 @@ module.exports = {
 	},
 	// 서드파티 플러그인
 	plugins: ['react', '@typescript-eslint'],
-
 	// extends는 추가한 플러그인에서 사용할 규칙을 설정합니다.
 	extends: [
 		'eslint:recommended',
 		'plugin:react/recommended',
 		'plugin:@typescript-eslint/recommended',
-		'next/typescript',
-		'next/core-web-vitals', //  Core Web Vitals 규칙 세트 와 함께 Next.js의 기본 ESLint 구성을 포함합니다 .
+		'next/core-web-vitals',
 		'prettier',
+		'plugin:storybook/recommended',
 	],
 	parser: '@typescript-eslint/parser',
 	parserOptions: {
@@ -23,14 +22,8 @@ module.exports = {
 		sourceType: 'module',
 	},
 	rules: {
-		'@typescript-eslint/no-var-requires': 0,
-		'react/no-unescaped-entities': 0,
-		'@typescript-eslint/ban-ts-comment': 'off',
-		'import/no-anonymous-default-export': 'off',
+		'@typescript-eslint/no-empty-interface': 'off',
 		'@typescript-eslint/no-non-null-assertion': 'off',
-		'@typescript-eslint/no-explicit-any': 'off',
-		'@typescript-eslint/no-unused-vars': 'off',
-		'prettier/prettier': ['error'],
-		'no-console': ['error'],
+		'no-restricted-imports': ['warn', { patterns: ['@mui/*/*/*'] }],
 	},
 };
