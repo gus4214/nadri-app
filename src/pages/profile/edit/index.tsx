@@ -10,7 +10,7 @@ const ProfileEditPage: NextPage = () => {
 		<>
 			<DetailNavBar title='프로필 수정' goBack />
 			<ProfileEditFormContainer />
-			<BottomFixedContainer bottom={24}>
+			<BottomFixedContainer sx={{ py: '24px' }}>
 				<Box display={'flex'} justifyContent={'center'} alignItems={'center'}>
 					<UnderlineTextButton buttonText='로그아웃' />
 				</Box>
