@@ -4,7 +4,7 @@ import DetailNavBar from '@/src/layouts/components/DetailNavBar';
 import { Stack } from '@mui/material';
 import { NextPage } from 'next';
 
-const MeetingsCompletePage: NextPage = () => {
+const MeetingsEndPage: NextPage = () => {
 	return (
 		<>
 			<DetailNavBar title='완료된 모임' goBack />
@@ -17,4 +17,4 @@ const MeetingsCompletePage: NextPage = () => {
 	);
 };
 
-export default MeetingsCompletePage;
+export default MeetingsEndPage;

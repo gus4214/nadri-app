@@ -1,5 +1,6 @@
 import MainContainer from '@/src/components/atoms/layouts/MainContainer';
 import MeetingFilterGroup from '@/src/components/molecules/inputs/MeetingFilterGroup';
+import Suspense from '@/src/components/molecules/suspense/Suspense';
 import RecruitingMeetings from '@/src/components/organisms/main/meetings/RecruitingMeetings';
 import DetailNavBar from '@/src/layouts/components/DetailNavBar';
 import { Stack } from '@mui/material';
@@ -12,7 +13,9 @@ const MeetingsRecruitPage: NextPage = () => {
 			<MainContainer sx={{ pt: '20px' }}>
 				<Stack direction={'column'} gap={'16px'} component={'section'}>
 					<MeetingFilterGroup />
-					<RecruitingMeetings />
+					<Suspense>
+						<RecruitingMeetings />
+					</Suspense>
 				</Stack>
 			</MainContainer>
 		</>

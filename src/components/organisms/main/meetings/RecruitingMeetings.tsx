@@ -1,7 +1,9 @@
 import List from '@/src/components/molecules/list/List';
 import ListHeader from '@/src/components/molecules/list/ListHeader';
 import ListItem from '@/src/components/molecules/list/ListItem';
+import { useGetMeetings } from '@/src/fetchers/meetings';
 import { Divider } from '@mui/material';
+import { useRouter } from 'next/router';
 import { FC } from 'react';
 
 interface RecruitingMeetingsProps {
@@ -19,9 +21,22 @@ const sample = [
 ];
 
 const RecruitingMeetings: FC<RecruitingMeetingsProps> = ({ isHeader }) => {
+	const router = useRouter();
+	const { data } = useGetMeetings({ BD_RATE: 1, BD_STATE: 'ING', LIMIT: 5, PAGE: 1 });
+
 	return (
 		<>
-			<List header={isHeader && <ListHeader title='모집 중 모임' sx={{ pb: '20px' }} href='/meetings/recruit' />}>
+			<List
+				header={
+					isHeader && (
+						<ListHeader
+							title='모집 중 모임'
+							sx={{ pb: '20px' }}
+							onClick={() => router.push({ pathname: '/meetings/recruit', query: { status: 'ing' } })}
+						/>
+					)
+				}
+			>
 				{sample.map((v, i) => (
 					<>
 						{i !== 0 && <Divider sx={{ my: '20px' }} />}

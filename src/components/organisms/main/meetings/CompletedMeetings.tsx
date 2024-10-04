@@ -2,6 +2,7 @@ import ImageCard from '@/src/components/molecules/cards/ImageCard';
 import List from '@/src/components/molecules/list/List';
 import ListHeader from '@/src/components/molecules/list/ListHeader';
 import { Box } from '@mui/material';
+import { useRouter } from 'next/router';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import 'react-perfect-scrollbar/dist/css/styles.css';
 
@@ -13,8 +14,9 @@ const sample = [
 ];
 
 const CompletedMeetings = () => {
+	const router = useRouter();
 	return (
-		<List header={<ListHeader title='완료된 모임' href='/meetings/complete' />}>
+		<List header={<ListHeader title='완료된 모임' onClick={() => router.push('/meetings/end')} />}>
 			<PerfectScrollbar options={{ wheelPropagation: false }} style={{ display: 'flex', gap: '12px' }}>
 				{sample.map((v, i) => (
 					<Box key={v.id}>

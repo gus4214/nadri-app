@@ -8,11 +8,12 @@ import { FC } from 'react';
 
 interface ListItemProps {
 	title?: string;
+	onClick?: () => void;
 }
 
-const ListItem: FC<ListItemProps> = ({ title }) => {
+const ListItem: FC<ListItemProps> = ({ title, onClick }) => {
 	return (
-		<Stack direction={'row'} gap={'16px'} height={'100px'} alignItems={'center'}>
+		<Stack direction={'row'} gap={'16px'} height={'100px'} alignItems={'center'} sx={{ cursor: 'pointer' }} onClick={onClick}>
 			<Box sx={{ position: 'relative', width: '100px', height: '100px', aspectRatio: '1/1' }}>
 				<Image src={'/images/sample/sample2.jpg'} alt='banner' fill objectFit='cover' objectPosition='center' style={{ borderRadius: '10px' }} />
 				<Box sx={{ position: 'absolute', right: 0 }}>

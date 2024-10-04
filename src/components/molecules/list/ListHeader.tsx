@@ -1,24 +1,22 @@
 import { Stack, SxProps, Typography } from '@mui/material';
-import Link from 'next/link';
+import Link, { LinkProps } from 'next/link';
 import { FC } from 'react';
 
 interface ListHeaderProps {
 	title: string;
-	href: string;
 	sx?: SxProps;
+	onClick: () => void;
 }
 
-const ListHeader: FC<ListHeaderProps> = ({ title, href, sx }) => {
+const ListHeader: FC<ListHeaderProps> = ({ title, sx, onClick }) => {
 	return (
 		<Stack direction={'row'} justifyContent={'space-between'} alignItems={'center'} component={'header'} pb={'16px'} sx={{ ...sx }}>
 			<Typography variant='button' fontWeight={'fontWeightBold'}>
 				{title}
 			</Typography>
-			<Link href={href}>
-				<Typography variant={'label1'} color={'grey.500'} sx={{ cursor: 'pointer' }}>
-					{`더보기 >`}
-				</Typography>
-			</Link>
+			<Typography variant={'label1'} color={'grey.500'} sx={{ cursor: 'pointer' }} onClick={onClick}>
+				{`더보기 >`}
+			</Typography>
 		</Stack>
 	);
 };
