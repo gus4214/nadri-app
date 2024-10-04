@@ -39,7 +39,7 @@ const RecruitingMeetings: FC<RecruitingMeetingsProps> = ({ isHeader }) => {
 				{sample.map((v, i) => (
 					<>
 						{i !== 0 && <Divider sx={{ my: '20px' }} />}
-						<ListItem key={v.id} title={v.title} />
+						<ListItem key={v.id} title={v.title} onClick={() => router.push('/meetings/recruit/1')} />
 					</>
 				))}
 			</List>

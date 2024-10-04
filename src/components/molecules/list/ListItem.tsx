@@ -4,6 +4,7 @@ import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { Box, Stack, Typography } from '@mui/material';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import { FC } from 'react';
 
 interface ListItemProps {

@@ -4,12 +4,13 @@ import Image from 'next/image';
 import { FC } from 'react';
 
 interface ImageCardProps {
-	title?: string
+	title?: string;
+	onClick?: () => void;
 }
 
-const ImageCard: FC<ImageCardProps> = ({title}) => {
+const ImageCard: FC<ImageCardProps> = ({ title, onClick }) => {
 	return (
-		<Box sx={{ position: 'relative', width: '170px', height: '170px', aspectRatio: '1/1', cursor: 'pointer' }}>
+		<Box sx={{ position: 'relative', width: '170px', height: '170px', aspectRatio: '1/1', cursor: 'pointer' }} onClick={onClick}>
 			<Image
 				src={'/images/sample/sample3.jpg'}
 				alt='banner'

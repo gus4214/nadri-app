@@ -20,7 +20,7 @@ const CompletedMeetings = () => {
 			<PerfectScrollbar options={{ wheelPropagation: false }} style={{ display: 'flex', gap: '12px' }}>
 				{sample.map((v, i) => (
 					<Box key={v.id}>
-						<ImageCard title={v.title} />
+						<ImageCard title={v.title} onClick={() => router.push('/meetings/recruit/1')} />
 					</Box>
 				))}
 			</PerfectScrollbar>
