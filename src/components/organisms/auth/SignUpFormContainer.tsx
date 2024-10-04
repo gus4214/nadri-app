@@ -4,7 +4,12 @@ import SignUpForm from '@/src/components/organisms/auth/SignUpForm';
 import useSignUpForm from '@/src/hooks/form/useSignUp.form';
 
 const SignUpFormContainer = () => {
-	const { formHandler } = useSignUpForm();
+	const { formHandler } = useSignUpForm({
+		CU_NICKNAME: '',
+		CU_BIRTH: undefined,
+		CU_GENDER: '남성',
+		CU_MEMO: '',
+	});
 
 	const {
 		formState: { isValid },

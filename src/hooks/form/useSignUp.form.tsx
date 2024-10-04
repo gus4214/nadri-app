@@ -16,18 +16,13 @@ const schema = yup.object().shape({
 	CU_MEMO: yup.string().required('한 줄 소개를 작성해주세요.').max(30, '30자 이내로 작성해주세요.'),
 });
 
-const useSignUpForm = (defaultValue?: Partial<SignUpFormData>) => {
-	const { CU_NICKNAME, CU_BIRTH, CU_GENDER, CU_MEMO } = defaultValue as SignUpFormData;
+const useSignUpForm = (defaultValues: Partial<SignUpFormData>) => {
+	// const { CU_NICKNAME, CU_BIRTH, CU_GENDER, CU_MEMO } = defaultValue as SignUpFormData;
 
 	const formHandler = useForm<SignUpFormData>({
 		mode: 'onChange',
 		resolver: yupResolver(schema),
-		defaultValues: {
-			CU_NICKNAME: CU_NICKNAME || '',
-			CU_BIRTH: CU_BIRTH || undefined,
-			CU_GENDER: CU_GENDER || '남성',
-			CU_MEMO: CU_MEMO ||'',
-		},
+		defaultValues,
 	});
 
 	return {
