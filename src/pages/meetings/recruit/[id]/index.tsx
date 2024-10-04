@@ -51,7 +51,7 @@ const MeetingRecruitDetailPage: NextPage = () => {
 					</Typography>
 				</VerticalField>
 			</MainContainer>
-			<BottomFixedContainer top>
+			<BottomFixedContainer bottom={60}>
 				<AppButton size='large'>모임 동행 요청하기</AppButton>
 			</BottomFixedContainer>
 		</>

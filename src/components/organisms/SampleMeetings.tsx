@@ -1,26 +1,21 @@
 import List from '@/src/components/molecules/list/List';
 import ListHeader from '@/src/components/molecules/list/ListHeader';
 import ListItem from '@/src/components/molecules/list/ListItem';
-import { useGetMeetings } from '@/src/fetchers/meetings';
 import { Divider } from '@mui/material';
 import { useRouter } from 'next/router';
 import { FC } from 'react';
 
-interface RecruitingMeetingsProps {
+interface SampleMeetingsProps {
 	isHeader?: boolean;
 }
 
 const sample = [
-	{ id: 0, title: '마포구 대단지 탐험' },
-	{ id: 1, title: '마곡나루 오피스텔 상권 살펴보기' },
-	{
-		id: 2,
-		title:
-			'제목은 최대 두 줄까지 노출 두 줄 영역 벗어나면 말줄임처리 제목은 최대 두 줄까지 노출 두 줄 영역 벗어나면 말줄임처리 제목은 최대 두 줄까지 노출 두 줄 영역 벗어나면 말줄임처리',
-	},
+	{ id: 0, title: '펜타역세권!! 안산 초지역 메이저타운 푸르지오 메트로단지 임장 투어' },
+	{ id: 1, title: '9호선 인접 마곡나루 단지 오피스텔 상권 살펴보기(서울숲 호수 공원, 단지 내 조경)' },
+	{ id: 2, title: '연남동 연트럴파크 주변 부동산 발품 다니면서 임장 가실 분 구해요~~' },
 ];
 
-const RecruitingMeetings: FC<RecruitingMeetingsProps> = ({ isHeader }) => {
+const SampleMeetings: FC<SampleMeetingsProps> = ({ isHeader }) => {
 	const router = useRouter();
 
 	return (
@@ -47,4 +42,4 @@ const RecruitingMeetings: FC<RecruitingMeetingsProps> = ({ isHeader }) => {
 	);
 };
 
-export default RecruitingMeetings;
+export default SampleMeetings;
