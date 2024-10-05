@@ -7,6 +7,10 @@ export interface GetMeetingsRequest {
 	LIMIT: number;
 	PAGE: number;
 }
+
+export interface GetMeetingRequest {
+	BD_IDX: number;
+}
 export interface GetMeetingsItem {
 	BD_REGION: string; //TODO 테스트용
 	BD_START_DATE: string; //TODO 테스트용
@@ -30,7 +34,9 @@ export interface USER_PROFILE {
 export interface GetMeetingItem extends GetMeetingsItem {
 	BD_PART_YN: boolean; // 로그인 회원 참여 여부
 	BD_CONTENT: string; // 세부 설명
-	LEADER_INFO: LEADER_INFO[]; // 모임장 정보
+	LEADER_INFO: LEADER_INFO; // 모임장 정보
+	BD_REVIEWS: { good: string[]; bad: string[] }; //TODO 테스트용
+	BD_MEMBER: boolean; //TODO 테스트용
 }
 
 interface LEADER_INFO {
@@ -39,6 +45,6 @@ interface LEADER_INFO {
 	cu_nickName: string;
 	cu_profile: string;
 	cu_gender: string;
-	cu_birth: Date;
+	cu_birth: string;
 	cu_memo: string;
 }

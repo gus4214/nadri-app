@@ -8,7 +8,7 @@ interface CompletedMeetingsContainerProps {
 }
 
 const CompletedMeetingsContainer: FC<CompletedMeetingsContainerProps> = ({ BD_RATE, BD_REGION }) => {
-	const { data } = useGetMeetings({ BD_STATE: 'END', BD_RATE, LIMIT: 3, PAGE: 1, BD_REGION });
+	const { data } = useGetMeetings({ BD_STATE: 'END', BD_RATE, LIMIT: 5, PAGE: 1, BD_REGION });
 
 	return <MeetingsCardList meetings={data || []} />;
 };

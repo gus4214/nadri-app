@@ -18,7 +18,7 @@ const MeetingsCardItem: FC<MeetingsCardItemProps> = ({ meetingsItem, onClick }) 
 	const reviewCountOverText = reviewProfilesCount >= 3 ? `3개 이상` : `${reviewProfilesCount}개`;
 
 	return (
-		<Box sx={{ position: 'relative', width: '170px', height: '170px', aspectRatio: '1/1', cursor: 'pointer' }}>
+		<Box sx={{ position: 'relative', width: '170px', height: '170px', aspectRatio: '1/1', cursor: 'pointer' }} onClick={onClick}>
 			<Image src={BD_IMG} alt='meeting' fill objectFit='cover' objectPosition='center' style={{ borderRadius: '10px', filter: 'brightness(70%)' }} />
 			<Box sx={{ position: 'absolute', height: '100%' }}>
 				<Box sx={{ display: 'flex', flexDirection: 'column', alignContent: 'space-between', p: '16px', height: '100%' }}>

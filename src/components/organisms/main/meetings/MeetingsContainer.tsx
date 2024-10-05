@@ -18,7 +18,12 @@ const MeetingsContainer: FC<MeetingsContainerProps> = ({ minHeight, emptyText, B
 	const { data } = useGetMeetings({ BD_STATE, BD_RATE, LIMIT, PAGE, BD_REGION });
 
 	return (
-		<MeetingsList meetings={data || []} minHeight={minHeight} renderEmpty={<EmptyListDisplay text={emptyText} sx={{ minHeight, pt: '60px' }} />} />
+		<MeetingsList
+			meetings={data || []}
+			minHeight={minHeight}
+			BD_STATE={BD_STATE}
+			renderEmpty={<EmptyListDisplay text={emptyText} sx={{ minHeight, pt: '60px' }} />}
+		/>
 	);
 };
 

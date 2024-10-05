@@ -1,5 +1,6 @@
 import MainContainer from '@/src/components/atoms/layouts/MainContainer';
-import SampleMeetings from '@/src/components/organisms/SampleMeetings';
+import Suspense from '@/src/components/molecules/suspense/Suspense';
+import MeetingsContainer from '@/src/components/organisms/main/meetings/MeetingsContainer';
 import { Box, Tab, Tabs, Typography } from '@mui/material';
 import React, { useState } from 'react';
 
@@ -41,7 +42,10 @@ const UserMeetingsTab = () => {
 				</Tabs>
 			</Box>
 			<CustomTabPanel value={value} index={0}>
-				<SampleMeetings />
+				{/* <SampleMeetings /> */}
+				<Suspense>
+					<MeetingsContainer emptyText='앗! 등록된 모임이 없어요.' BD_STATE='ING' BD_RATE={3} BD_REGION={'서울'} LIMIT={10} PAGE={1} />
+				</Suspense>
 			</CustomTabPanel>
 			<CustomTabPanel value={value} index={1}>
 				<Box py={'20px'}>
