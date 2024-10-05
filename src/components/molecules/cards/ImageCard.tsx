@@ -1,6 +1,7 @@
 import BasicTag from '@/src/components/atoms/tags/BasicTag';
-import { Box, Stack, Typography } from '@mui/material';
+import { Avatar, AvatarGroup, Box, Stack, Typography } from '@mui/material';
 import Image from 'next/image';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { FC } from 'react';
 
 interface ImageCardProps {
@@ -36,7 +37,23 @@ const ImageCard: FC<ImageCardProps> = ({ title, onClick }) => {
 						</Typography>
 					</Stack>
 					<Box display={'flex'} flex={1} />
-					<Stack direction={'row'} gap={'12px'}>
+					<Stack direction={'row'} gap={'12px'} alignItems={'center'}>
+						<AvatarGroup
+							max={3}
+							total={4}
+							spacing={12}
+							renderSurplus={() => (
+								<>
+									<MoreHorizIcon sx={{ fontSize: '12px' }} />
+								</>
+							)}
+							sx={{ '& .MuiAvatar-root': { width: '16px', height: '16px', border: '1px solid white', marginLeft: '-4px' } }}
+						>
+							<Avatar alt='sample' src='/images/sample/profile.png' sx={{ width: '16px', height: '16px', '&.MuiAvatar-root': { border: '1px solid white', marginLeft: '-4px' } }} />
+							<Avatar alt='sample' sx={{ width: '16px', height: '16px', '&.MuiAvatar-root': { border: '1px solid white', marginLeft: '-4px' } }} />
+							<Avatar alt='sample' sx={{ width: '16px', height: '16px', '&.MuiAvatar-root': { border: '1px solid white', marginLeft: '-4px' } }} />
+							<Avatar alt='sample' sx={{ width: '16px', height: '16px', '&.MuiAvatar-root': { border: '1px solid white', marginLeft: '-4px' } }} />
+						</AvatarGroup>
 						<Typography variant='label1' color='white'>
 							리뷰 3개
 						</Typography>

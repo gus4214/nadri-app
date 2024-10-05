@@ -13,19 +13,19 @@ interface MeetingsItemProps {
 }
 
 const MeetingsItem: FC<MeetingsItemProps> = ({ meetingsItem, onClick }) => {
-	const { BD_TITLE, BD_RATE, BD_CNT, BD_PART_CNT, BD_START_DATE, BD_IMG } = meetingsItem;
+	const { BD_TITLE, BD_RATE, BD_CNT, BD_PART_CNT, BD_START_DATE, BD_IMG, BD_REGION, BD_CREATE_DATE } = meetingsItem;
 
 	return (
 		<Stack direction={'row'} gap={'16px'} height={'100px'} alignItems={'center'} sx={{ cursor: 'pointer' }} onClick={onClick}>
 			<Box sx={{ position: 'relative', width: '100px', height: '100px', aspectRatio: '1/1' }}>
 				<Image src={BD_IMG} alt='banner' fill objectFit='cover' objectPosition='center' style={{ borderRadius: '10px' }} />
 				<Box sx={{ position: 'absolute', right: 0 }}>
-					<CornerTag text={BD_RATE} />
+					<CornerTag text={`${BD_RATE}급지`} />
 				</Box>
 			</Box>
 			<Stack direction={'column'}>
 				<Typography variant='label1' color='#767676'>
-					N시간 전
+					{BD_CREATE_DATE}
 				</Typography>
 				<Box mt={'4px'} />
 				<Typography
@@ -43,8 +43,8 @@ const MeetingsItem: FC<MeetingsItemProps> = ({ meetingsItem, onClick }) => {
 				</Typography>
 				<Box mt={'8px'} />
 				<Stack direction={'row'} gap={'4px'}>
-					<BasicTag leftIcon={<LocationOnIcon sx={{ width: '10px', height: '10px' }} />} text='경기 성남시 분당구' />
-					<BasicTag leftIcon={<CalendarTodayIcon sx={{ width: '10px', height: '10px' }} />} text='10.12(화)' />
+					<BasicTag leftIcon={<LocationOnIcon sx={{ width: '10px', height: '10px' }} />} text={BD_REGION} />
+					<BasicTag leftIcon={<CalendarTodayIcon sx={{ width: '10px', height: '10px' }} />} text={BD_START_DATE} />
 				</Stack>
 				<Box mt={'6px'} />
 				<Stack direction={'row'} gap={'4px'}>
@@ -52,7 +52,7 @@ const MeetingsItem: FC<MeetingsItemProps> = ({ meetingsItem, onClick }) => {
 						D-30
 					</Typography>
 					<Typography variant='label1' color='grey.500'>
-						· 멤버 3/3명
+						{`· 멤버 ${BD_PART_CNT}/${BD_CNT}명`}
 					</Typography>
 				</Stack>
 			</Stack>

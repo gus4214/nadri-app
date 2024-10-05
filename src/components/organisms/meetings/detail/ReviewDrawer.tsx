@@ -46,7 +46,7 @@ const ReviewDrawer: FC<ReviewDrawerProps> = ({ open, onClose }) => {
 			onClose={handleClose}
 			sx={{
 				'& .MuiDrawer-paper': {
-					width: '600px',
+					maxWidth: '600px',
 					margin: '0 auto',
 					marginBottom: 'auto',
 					borderRadius: '20px 20px 0px 0px',

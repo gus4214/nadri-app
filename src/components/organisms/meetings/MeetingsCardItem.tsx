@@ -1,4 +1,5 @@
 import BasicTag from '@/src/components/atoms/tags/BasicTag';
+import ProfileGroup from '@/src/components/molecules/display/ProfileGroup';
 import { GetMeetingsItem } from '@/src/fetchers/meetings/types';
 import { Box, Stack, Typography } from '@mui/material';
 import Image from 'next/image';
@@ -10,7 +11,11 @@ interface MeetingsCardItemProps {
 }
 
 const MeetingsCardItem: FC<MeetingsCardItemProps> = ({ meetingsItem, onClick }) => {
-	const { BD_TITLE, BD_RATE, BD_IMG } = meetingsItem;
+	const { BD_TITLE, BD_RATE, BD_IMG, BD_REGION, BD_USER_PROFILE } = meetingsItem;
+
+	const reviewProfilesCount = BD_USER_PROFILE.length;
+	const isReviewProfiles = !!BD_USER_PROFILE.length;
+	const reviewCountOverText = reviewProfilesCount >= 3 ? `3개 이상` : `${reviewProfilesCount}개`;
 
 	return (
 		<Box sx={{ position: 'relative', width: '170px', height: '170px', aspectRatio: '1/1', cursor: 'pointer' }}>
@@ -20,7 +25,7 @@ const MeetingsCardItem: FC<MeetingsCardItemProps> = ({ meetingsItem, onClick }) 
 					<Stack direction={'column'} gap={'10px'}>
 						<Stack direction={'row'} gap={'4px'}>
 							<BasicTag text={`${BD_RATE}급지`} />
-							<BasicTag text='경기 성남시' />
+							<BasicTag text={BD_REGION} />
 						</Stack>
 						<Typography
 							variant='body1'
@@ -32,11 +37,14 @@ const MeetingsCardItem: FC<MeetingsCardItemProps> = ({ meetingsItem, onClick }) 
 						</Typography>
 					</Stack>
 					<Box display={'flex'} flex={1} />
-					<Stack direction={'row'} gap={'12px'}>
-						<Typography variant='label1' color='white'>
-							리뷰 3개
-						</Typography>
-					</Stack>
+					{isReviewProfiles && (
+						<Stack direction={'row'} gap={'12px'} alignItems={'center'}>
+							<ProfileGroup profiles={BD_USER_PROFILE} />
+							<Typography variant='label1' color='white'>
+								{`리뷰 ${reviewCountOverText}`}
+							</Typography>
+						</Stack>
+					)}
 				</Box>
 			</Box>
 		</Box>

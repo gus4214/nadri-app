@@ -51,7 +51,7 @@ const requestApi = async <T, R>(request: IRequest<T, R>, options?: RawAxiosReque
 	}
 };
 
-export const callApi = async <T, R extends object>(request: IRequest<T, R>, options?: RawAxiosRequestHeaders): Promise<IResponse<R>> => {
+export const callApi = async <T, R extends object>(request: IRequest<T, R>, options?: RawAxiosRequestHeaders): Promise<R> => {
 	const response = await requestApi<T, R>(request, options);
 	return response.data;
 };
