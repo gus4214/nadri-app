@@ -1,6 +1,6 @@
 import BasicTag from '@/src/components/atoms/tags/BasicTag';
 import CornerTag from '@/src/components/atoms/tags/CornerTag';
-import { GetMeetingsItem } from '@/src/fetchers/meetings';
+import { GetMeetingsItem } from '@/src/fetchers/meetings/types';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { Box, Stack, Typography } from '@mui/material';

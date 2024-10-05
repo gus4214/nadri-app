@@ -1,22 +1,27 @@
+import DotDivisionText from '@/src/components/atoms/display/DotDivisionText';
 import { Avatar, Stack, Typography } from '@mui/material';
 import { FC } from 'react';
 
-interface UserItemProps {}
+interface UserItemProps {
+	profile: string;
+	nickName: string;
+	gender: string;
+	birth: string;
+	memo: string;
+}
 
-const UserItem: FC<UserItemProps> = () => {
+const UserItem: FC<UserItemProps> = ({ profile, nickName, gender, birth, memo }) => {
 	return (
 		<Stack direction={'row'} alignItems={'center'} gap={'10px'}>
-			<Avatar src='/images/sample/profile.png' />
+			<Avatar src={profile} />
 			<Stack direction={'column'}>
 				<Stack direction={'row'} gap={'8px'} alignItems={'center'}>
 					<Typography variant='body2' fontWeight={'fontWeightMedium'}>
-						임장조아
+						{nickName}
 					</Typography>
-					<Typography variant='body2' color='grey.500'>
-						남성﹒1999. 12. 13
-					</Typography>
+					<DotDivisionText texts={[`${gender}`, `${birth}`]} />
 				</Stack>
-				<Typography variant='body2'>저와 함께 부린이 탈출해요~!</Typography>
+				<Typography variant='body2'>{memo}</Typography>
 			</Stack>
 		</Stack>
 	);

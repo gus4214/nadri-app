@@ -1,5 +1,5 @@
 import BasicTag from '@/src/components/atoms/tags/BasicTag';
-import { GetMeetingsItem } from '@/src/fetchers/meetings';
+import { GetMeetingsItem } from '@/src/fetchers/meetings/types';
 import { Box, Stack, Typography } from '@mui/material';
 import Image from 'next/image';
 import { FC } from 'react';
