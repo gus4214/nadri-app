@@ -155,7 +155,10 @@ const MeetingRegisterForm = () => {
 				</VerticalFormField>
 			</MainContainer>
 			<BottomFixedContainer>
-				<AppButton size='large'>게시글 등록하기</AppButton>
+				<AppButton size='large' disabled>
+					{/* 게시글 등록하기 */}
+					서비스 준비중이에요!
+				</AppButton>
 			</BottomFixedContainer>
 		</>
 	);

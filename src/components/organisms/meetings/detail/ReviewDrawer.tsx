@@ -119,7 +119,7 @@ const ReviewDrawer: FC<ReviewDrawerProps> = ({ open, onClose }) => {
 					</Stack>
 				</Box>
 				<AppButton size='large' disabled>
-					서비스 준비중이에요
+					서비스 준비중이에요!
 				</AppButton>
 			</Box>
 		</Drawer>

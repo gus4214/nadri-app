@@ -1,7 +1,7 @@
 import { callApi } from '@/src/fetchers';
 import { apis } from '@/src/fetchers/api';
 import { GetMeetingItem, GetMeetingRequest, GetMeetingsItem, GetMeetingsRequest } from '@/src/fetchers/meetings/types';
-import { useQuery, useSuspenseQuery } from '@tanstack/react-query';
+import { QueryClient, useQuery, useSuspenseQuery } from '@tanstack/react-query';
 
 export const getMeetingsApi = (params: GetMeetingsRequest) => {
 	return callApi<GetMeetingsRequest, GetMeetingsItem[]>({
@@ -24,10 +24,23 @@ export const getMeetingApi = (params: GetMeetingRequest) => {
 	});
 };
 
-// 상세 페이지를 위한 React Query 훅
 export const useGetMeeting = (params: GetMeetingRequest) => {
-	return useQuery({
+	return useSuspenseQuery({
+		queryKey: ['meeting', params],
+		queryFn: () => getMeetingApi(params),
+	});
+};
+
+export const prefetchGetMeetings = (client: QueryClient, params: GetMeetingsRequest) => {
+	return client.prefetchQuery({
 		queryKey: ['meetings', params],
+		queryFn: () => getMeetingsApi(params),
+	});
+};
+
+export const prefetchGetMeeting = (client: QueryClient, params: GetMeetingRequest) => {
+	return client.prefetchQuery({
+		queryKey: ['meeting', params],
 		queryFn: () => getMeetingApi(params),
 	});
 };
