@@ -19,7 +19,7 @@ const MeetingDetailHeader: FC<MeetingDetailHeaderProps> = ({ meetingItem }) => {
 		<Stack component={'header'} direction={'column'} gap={'24px'}>
 			<Stack direction={'column'} gap={'8px'}>
 				<Typography variant='subtitle1'>{meetingItem?.BD_TITLE}</Typography>
-				<Stack direction={'row'}>
+				<Stack direction={'row'} gap={'8px'}>
 					<ProfileGroup profiles={meetingItem?.BD_USER_PROFILE || []} />
 					<DotDivisionText
 						texts={[

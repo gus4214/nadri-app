@@ -20,7 +20,14 @@ const LoginPage: NextPage = () => {
 						<LogoIcon sx={{ width: '94px', height: '74px' }} />
 						<LoginPageIcon sx={{ width: '320px', height: '85px', color: 'white' }} />
 					</Box>
+
 					<Stack direction={'column'} alignItems={'center'} gap={'16px'} pt={'36px'}>
+						<Typography variant='body2' fontWeight={500} color='primary' mb={'-10px'}>
+							*실제 카카오 로그인 기능은 아직 준비 중이에요!
+						</Typography>
+						<Typography variant='label1' fontWeight={500} color='primary' mb={'-6px'}>
+							(버튼 클릭 시 회원가입 페이지로 이동해요)
+						</Typography>
 						<SocialLoginButton />
 						<Link href={'/'}>
 							<Typography align='center' variant='body2' color={'grey.500'} sx={{ textDecoration: 'underline', cursor: 'pointer' }}>

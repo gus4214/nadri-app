@@ -24,7 +24,7 @@ const Banner = () => {
 							판교 역세권 아파트 알아보기
 						</Typography>
 						<Typography variant='body2' color='white'>
-							강남 주변 임장 모임 정보를 확인해보세요
+							판교 주변 임장 모임 정보를 확인해보세요
 						</Typography>
 					</Stack>
 				</Box>

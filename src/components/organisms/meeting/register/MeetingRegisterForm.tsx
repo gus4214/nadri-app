@@ -8,11 +8,13 @@ import FormSelect from '@/src/components/molecules/form/FormSelect';
 import FormTextArea from '@/src/components/molecules/form/FormTextArea';
 import FormTextField from '@/src/components/molecules/form/FormTextField';
 import VerticalFormField from '@/src/components/molecules/form/VerticalFormField';
+import { CityKey, regionData } from '@/src/config/city';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Divider, Stack } from '@mui/material';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import dayjs, { Dayjs } from 'dayjs';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
@@ -83,10 +85,28 @@ const MeetingRegisterForm = () => {
 		},
 	});
 
-	const { control, watch } = formHandler;
+	const { control, watch, setValue } = formHandler;
 
 	const titleValue = watch('title', '');
 	const descriptionValue = watch('description', '');
+	const selectedCity = watch('city', 'all');
+
+	// 시/군/구 옵션을 상태로 관리
+	const [townOptions, setTownOptions] = useState([{ label: '시/군/구', value: 'all' }]);
+
+	// 시/군/구 옵션 업데이트
+	useEffect(() => {
+		if (selectedCity && regionData[selectedCity as 'all' | 's' | 'k']) {
+			const towns = regionData[selectedCity as 'all' | 's' | 'k'].towns;
+			const formattedTowns = [{ label: '시/군/구', value: 'all' }, ...towns.map((town) => ({ label: town, value: town }))];
+			setTownOptions(formattedTowns);
+			// 기본값을 'all'로 설정
+			setValue('town', 'all');
+		} else {
+			setTownOptions([{ label: '시/군/구', value: 'all' }]);
+			setValue('town', 'all');
+		}
+	}, [selectedCity, setValue]);
 
 	return (
 		<>
@@ -109,8 +129,15 @@ const MeetingRegisterForm = () => {
 				{/* 지역 선택 셀렉트 */}
 				<VerticalFormField label='지역 선택' required>
 					<Stack direction={'row'} gap={'6px'}>
-						<FormSelect control={control} name='city' menuItems={cityMenuItems} />
-						<FormSelect control={control} name='town' menuItems={townMenuItems} />
+						<FormSelect
+							control={control}
+							name='city'
+							menuItems={Object.keys(regionData).map((key) => ({
+								label: regionData[key as 'all' | 's' | 'k'].label,
+								value: key,
+							}))}
+						/>
+						<FormSelect control={control} name='town' menuItems={townOptions} />
 					</Stack>
 				</VerticalFormField>
 				{/* 급지 선택 */}
