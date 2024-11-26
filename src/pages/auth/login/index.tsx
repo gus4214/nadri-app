@@ -1,7 +1,7 @@
-import SocialLoginButton from '@/src/components/atoms/buttons/SocialLoginButton';
 import LoginPageIcon from '@/src/components/atoms/icons/LoginPageIcon';
 import LogoIcon from '@/src/components/atoms/icons/LogoIcon';
 import MainContainer from '@/src/components/atoms/layouts/MainContainer';
+import KakaoLoginContainer from '@/src/components/organisms/auth/login/KakaoLoginContainer';
 import DetailNavBar from '@/src/layouts/components/DetailNavBar';
 import { Box, Stack, Typography } from '@mui/material';
 import { NextPage } from 'next';
@@ -28,7 +28,7 @@ const LoginPage: NextPage = () => {
 						<Typography variant='label1' fontWeight={500} color='primary' mb={'-6px'}>
 							(버튼 클릭 시 회원가입 페이지로 이동해요)
 						</Typography>
-						<SocialLoginButton />
+						<KakaoLoginContainer />
 						<Link href={'/'}>
 							<Typography align='center' variant='body2' color={'grey.500'} sx={{ textDecoration: 'underline', cursor: 'pointer' }}>
 								로그인하지 않고 둘러보기

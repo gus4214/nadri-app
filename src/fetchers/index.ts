@@ -1,5 +1,5 @@
 import { SERVER_API } from '@/src/fetchers/api';
-import { IResponse, IRequest } from '@/src/fetchers/types';
+import { IRequest } from '@/src/fetchers/types';
 import axios, { AxiosError, AxiosInstance, AxiosResponse, Method, RawAxiosRequestHeaders } from 'axios';
 import qs from 'qs';
 
