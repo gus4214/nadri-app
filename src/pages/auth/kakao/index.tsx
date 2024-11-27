@@ -13,10 +13,10 @@ const KakaoAuthHandler = () => {
 			if (code) {
 				try {
 					const response = await axios.post('/api/kakao/token', { code });
-					console.log('Access Token:', response.data.access_token);
+					console.log('🚀 ~ sendCodeToServer ~ response:', response);
 
 					// TODO: 유저 정보 요청 또는 세션 관리
-					router.push('/'); // 성공 후 리디렉션
+					router.push('/');
 				} catch (error) {
 					console.error('Error authenticating with Kakao:', error);
 					router.push('/login?error=auth'); // 실패 시 리디렉션

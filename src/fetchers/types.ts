@@ -1,8 +1,7 @@
 import { ApiInfo } from '@/src/fetchers/api';
 
-export interface IResponse<T> {
-	data?: T;
-	message?: string;
+export interface IResponse {
+	msg?: string;
 	status?: number;
 }
 
