@@ -17,7 +17,12 @@ const AuthContext = createContext(defaultProvider);
 const AuthProvider = ({ children }: AuthProviderProps) => {
 	const [loading, setLoading] = useState<boolean>(defaultProvider.loading);
 
-	const login = async (params: LoginRequest) => {};
+	const login = async (params: LoginRequest, errCallback?: () => void) => {
+		try {
+		} catch (err) {
+			if (errCallback) errCallback();
+		}
+	};
 
 	const logout = async () => {};
 

@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import axios from 'axios';
 import { Box, Typography } from '@mui/material';
+import { loginApi } from '@/src/fetchers/auth';
 
 const KakaoAuthHandler = () => {
 	const router = useRouter();
@@ -16,10 +17,10 @@ const KakaoAuthHandler = () => {
 					console.log('🚀 ~ sendCodeToServer ~ response:', response);
 
 					// TODO: 유저 정보 요청 또는 세션 관리
-					router.push('/');
+					// router.push('/');
 				} catch (error) {
-					console.error('Error authenticating with Kakao:', error);
-					router.push('/login?error=auth'); // 실패 시 리디렉션
+					// console.error('Error authenticating with Kakao:', error);
+					// router.push('/login?error=auth');
 				}
 			}
 		};
