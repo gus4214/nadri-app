@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { Box, Typography } from '@mui/material';
 import { loginApi } from '@/src/fetchers/auth';
 
@@ -12,15 +12,18 @@ const KakaoAuthHandler = () => {
 			const { code } = router.query;
 
 			if (code) {
+				const response = await axios.post('/api/kakao/token', { code });
+				console.log('🚀 ~ sendCodeToServer ~ response:', response);
 				try {
-					const response = await axios.post('/api/kakao/token', { code });
-					console.log('🚀 ~ sendCodeToServer ~ response:', response);
+					const loginResult = await loginApi({ CU_ID: response.data.id });
 
 					// TODO: 유저 정보 요청 또는 세션 관리
 					// router.push('/');
-				} catch (error) {
-					// console.error('Error authenticating with Kakao:', error);
-					// router.push('/login?error=auth');
+				} catch (e) {
+					const error = e as AxiosError;
+					if (error.status === 400) {
+						router.push('/auth/signup');
+					}
 				}
 			}
 		};
