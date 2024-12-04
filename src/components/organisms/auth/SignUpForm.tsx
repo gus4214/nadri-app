@@ -1,3 +1,4 @@
+import AppButton from '@/src/components/atoms/buttons/AppButton';
 import MainContainer from '@/src/components/atoms/layouts/MainContainer';
 import FormDatePicker from '@/src/components/molecules/form/FormDatePicker';
 import FormMaxNumTag from '@/src/components/molecules/form/FormMaxNumTag';
@@ -13,10 +14,15 @@ import { UseFormReturn } from 'react-hook-form';
 
 interface SignUpFormProps {
 	formHandler: UseFormReturn<SignUpFormData>;
+	profileUrl?: string;
 }
 
-const SignUpForm: FC<SignUpFormProps> = ({ formHandler }) => {
-	const { control, watch } = formHandler;
+const SignUpForm: FC<SignUpFormProps> = ({ formHandler, profileUrl }) => {
+	const {
+		control,
+		watch,
+		formState: { isValid },
+	} = formHandler;
 
 	const memoValue = watch('CU_MEMO', '');
 	const nicknameValue = watch('CU_NICKNAME', '');
@@ -26,7 +32,7 @@ const SignUpForm: FC<SignUpFormProps> = ({ formHandler }) => {
 	return (
 		<MainContainer sx={{ pt: '24px', gap: '24px' }}>
 			<Box display={'flex'} justifyContent={'center'}>
-				<Avatar sx={{ width: '120px', height: '120px' }} src='/images/sample/profile.png' />
+				<Avatar sx={{ width: '120px', height: '120px' }} src={profileUrl} />
 			</Box>
 			<VerticalFormField label='닉네임' required>
 				<FormTextField
@@ -66,6 +72,10 @@ const SignUpForm: FC<SignUpFormProps> = ({ formHandler }) => {
 			<VerticalFormField label='한 줄 소개' required tag={<FormMaxNumTag typingValue={memoValue.length} maxNum={30} />}>
 				<FormTextField control={control} name='CU_MEMO' inputProps={{ placeholder: '30자 이내로 자신을 소개해주세요.' }} />
 			</VerticalFormField>
+			<Box mt={'64px'} />
+			<AppButton type='submit' size='large' disabled={!isValid}>
+				시작하기
+			</AppButton>
 		</MainContainer>
 	);
 };

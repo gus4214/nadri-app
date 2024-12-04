@@ -1,3 +1,4 @@
+import { profileUrlKey, userIdKey } from '@/src/config/auth';
 import { SERVER_API, WEB_HOST } from '@/src/fetchers/api';
 import { LoginResult } from '@/src/fetchers/auth/types';
 import axios, { AxiosError } from 'axios';
@@ -46,7 +47,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 			withCredentials: false,
 		});
 
-		res.setHeader('Set-Cookie', `cu_id=${loginResponse.data.cu_idx}; Path=/; Max-Age=3600`);
+		res.setHeader('Set-Cookie', `${userIdKey}=${loginResponse.data.cu_idx}; Path=/; Max-Age=3600`);
 		res.redirect('/');
 	} catch (error) {
 		const axiosError = error as AxiosError<LoginResult>;
@@ -54,7 +55,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 		if (axiosError.response) {
 			switch (axiosError.response.status) {
 				case 400:
-					res.setHeader('Set-Cookie', `profileUrl=${userInfo.properties.thumbnail_image}; Path=/; Max-Age=3600`);
+					res.setHeader('Set-Cookie', [
+						`${profileUrlKey}=${userInfo.properties.profile_image}; Path=/auth/signup; Max-Age=3600`,
+						`${userIdKey}=${userInfo.id}; Path=/auth/signup; Max-Age=3600`,
+					]);
 					res.redirect('/auth/signup');
 					break;
 				default:

@@ -11,7 +11,17 @@ export interface LoginRequest {
 	CU_ID: string;
 }
 
+export interface RegisterProfileImgRequest {
+	CU_IDX: number;
+	CU_PROFILE?: string;
+}
+
 export interface LoginResult extends IResponse {
 	cu_idx: number;
+	timestamp: Date;
+}
+
+export interface RegisterProfileImgResult extends IResponse {
+	CU_IDX?: number;
 	timestamp: Date;
 }
