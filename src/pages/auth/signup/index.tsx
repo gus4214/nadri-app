@@ -15,8 +15,8 @@ const SignUpPage: NextPage<{ profileUrl?: string; userId: number }> = ({ profile
 SignUpPage.layout = 'blank';
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-	const userId = context.req.cookies[userIdKey];
-	const profileUrl = context.req.cookies[profileUrlKey];
+	const userId = context.req.cookies[userIdKey] || null;
+	const profileUrl = context.req.cookies[profileUrlKey] || null;
 
 	return { props: { profileUrl, userId } };
 }

@@ -14,6 +14,7 @@ console.log('SERVER API HOST = ', SERVER_API);
 export const apis: { [k: string]: ApiInfo } = {
 	// 인증
 	SIGN_UP_API: { uri: '/api/customer/register.ajax', method: 'POST', description: '회원가입 요청 API' },
+	NICK_NAME_CHECK_API: { uri: '/api/customer/nickName-check.ajax', method: 'GET', description: '닉네임 중복 체크 요청 API' },
 	SIGN_UP_PROFILE_IMG_REGISTER_API: { uri: '/api/customer/img-register.ajax', method: 'POST', description: '회원가입 프로필 이미지 등록 요청 API' },
 	LOGIN_API: { uri: '/api/customer/login.ajax', method: 'POST', description: '로그인 요청 API' },
 

@@ -15,9 +15,10 @@ import { UseFormReturn } from 'react-hook-form';
 interface SignUpFormProps {
 	formHandler: UseFormReturn<SignUpFormData>;
 	profileUrl?: string;
+	onNickNameCheck: (nickName: string) => void;
 }
 
-const SignUpForm: FC<SignUpFormProps> = ({ formHandler, profileUrl }) => {
+const SignUpForm: FC<SignUpFormProps> = ({ formHandler, profileUrl, onNickNameCheck }) => {
 	const {
 		control,
 		watch,
@@ -44,7 +45,12 @@ const SignUpForm: FC<SignUpFormProps> = ({ formHandler, profileUrl }) => {
 							input: {
 								endAdornment: (
 									<InputAdornment position='end' sx={{ pb: '6px' }}>
-										<Button variant='outlined' sx={{ height: '29px', borderRadius: '6px' }} disabled={!nicknameCheckValid}>
+										<Button
+											variant='outlined'
+											sx={{ height: '29px', borderRadius: '6px' }}
+											disabled={!nicknameCheckValid}
+											onClick={() => onNickNameCheck(nicknameValue)}
+										>
 											중복확인
 										</Button>
 									</InputAdornment>

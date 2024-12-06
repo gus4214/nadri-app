@@ -1,5 +1,7 @@
 import SignUpForm from '@/src/components/organisms/auth/SignUpForm';
-import useSignUpForm from '@/src/hooks/form/useSignUp.form';
+import { nickNameCheckApi, signupApi } from '@/src/fetchers/auth';
+import { SignupRequest } from '@/src/fetchers/auth/types';
+import useSignUpForm, { SignUpFormData } from '@/src/hooks/form/useSignUp.form';
 import { FC } from 'react';
 
 interface SignUpFormContainerProps {
@@ -17,13 +19,19 @@ const SignUpFormContainer: FC<SignUpFormContainerProps> = ({ profileUrl, userId 
 
 	const { handleSubmit } = formHandler;
 
-	const onSubmit = async () => {
+	const onSubmit = async (data: SignUpFormData) => {
+		// const result = await signupApi(data as SignupRequest);
+	};
+
+	const handleNickNameCheck = async (nickName: string) => {
 		const formData = new FormData();
+		formData.append('CU_NICKNAME', nickName);
+		// const result = await nickNameCheckApi(formData);
 	};
 
 	return (
 		<form autoComplete='off' onSubmit={handleSubmit(onSubmit)}>
-			<SignUpForm formHandler={formHandler} profileUrl={profileUrl} />
+			<SignUpForm formHandler={formHandler} profileUrl={profileUrl} onNickNameCheck={handleNickNameCheck} />
 		</form>
 	);
 };
