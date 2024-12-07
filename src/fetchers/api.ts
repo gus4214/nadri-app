@@ -6,7 +6,7 @@ export interface ApiInfo {
 	description?: string;
 }
 
-export const SERVER_API = process.env.NEXT_PUBLIC_SERVER_API;
+export const SERVER_API = process.env.NEXT_PUBLIC_PROTOTYPE_SERVER_API;
 
 console.log('SERVER API HOST = ', SERVER_API);
 
