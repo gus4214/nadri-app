@@ -1,40 +1,68 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# <img alt='로고' src="https://github.com/user-attachments/assets/3c7773dc-de6b-4204-8cff-fde56194c243" width="35"> 집나들이 - 부동산 임장 모임 서비스
 
-## Getting Started
+<table>
+  <tr>
+    <td>
+      <img alt='intro1' src="https://github.com/user-attachments/assets/7a0746ca-419f-4215-8a72-e023755e6106">
+    </td>
+    <td>
+      <img alt='intro2' src="https://github.com/user-attachments/assets/cc9e8faf-d12d-491e-9c3d-a99962db86e7">
+    </td>
+     <td>
+      <img alt='intro3' src="https://github.com/user-attachments/assets/236973f7-7ce4-4c79-bbfe-1e311ef631bf">
+    </td>
+     <td>
+      <img alt='intro4' src="https://github.com/user-attachments/assets/be685b9c-9b01-4403-9edd-9b6063085dc0">
+    </td>
+  </tr>
+</table>
 
-First, run the development server:
+<br>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+# 개요
+- 10일간 팀원을 모집하고 집중적으로 협업한 온라인 해커톤 프로젝트입니다.
+- 당시 서버 구현 문제로 인해 최종 제출물은 프론트엔드 프로토타입 형태에 머물렀으나, 사용자 경험 측면에서 가장 긍정적인 피드백을 받았습니다.
+  <img alt='screen' src="https://github.com/user-attachments/assets/0ee12976-605f-4c97-ad50-7b7dbfe4aeb7">
+- 그 결과 **2등**이라는 성과를 거두었고, 팀원에게도 노력을 인정받아 직무별 **최고 동료**로 선정되었습니다.😊
+  <img width="798" alt="스크린샷 2025-01-07 오전 3 56 21" src="https://github.com/user-attachments/assets/4ddefeee-1383-4ccb-b5bf-947aa3b56bde" />
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+<br>
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+# 서비스
+- 제출 프로토타입 데모 링크 : [jipnadri-prototype.vercel.app](https://jipnadri-prototype.vercel.app/)
+- 서비스 소개 : [노션 페이지](https://elemental-industry-25a.notion.site/155f230c3d158025bbbaeea4b17e896b?pvs=4)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+<br>
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+# 서비스 기획의도 
+> ### 배경
+- 내 집 마련 및 부동산 투자에 대한 관심도가 높아짐에 따라 부동산 임장 모임이 성행하고 있습니다.
+- 2030 청년들은 삼삼오오 모여 모임을 결성해 부동산 임장을 다니며 스터디를 하는 추세입니다.
 
-## Learn More
+> ### 문제 정의
+- 부동산에 관한 강의나 교육을 듣지 않는 사람들은 임장에 대해서 잘 모르고 체계적으로 참여해 볼 기회가 없습니다.
+- 부동산 임장 모임에 대한 수요는 많지만 찾는 과정이 번거롭습니다.
 
-To learn more about Next.js, take a look at the following resources:
+> ### 솔루션
+- 임장 모임을 마련해 주는 커뮤니티 플랫폼 제공
+- 부동산 임장을 잘 모르는 사람들도 쉽게 접근해 볼 수 있는 기회 제공
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<br>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# 제품 개발 프로세스
+총 10일 
+- Day1~5 : 아이템 논의, 기획, 디자인
+- Day6~9 : 개발 진행
+- D-10 : 최종산출물 제출
 
-## Deploy on Vercel
+<br>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# 제품 개발 스택
+- Next.js(PageRouter)
+- TypeScript
+- MUI
+- React-Query
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
