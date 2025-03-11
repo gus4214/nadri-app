@@ -30,7 +30,6 @@
 <br>
 
 # 서비스
-- 제출 프로토타입 데모 링크 : [jipnadri-prototype.vercel.app](https://jipnadri-prototype.vercel.app/)
 - 서비스 소개 : [노션 페이지](https://elemental-industry-25a.notion.site/155f230c3d158025bbbaeea4b17e896b?pvs=4)
 
 <br>
